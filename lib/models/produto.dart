@@ -1,4 +1,6 @@
-class Produto {
+import 'package:flutter/cupertino.dart';
+
+class Produto with ChangeNotifier {
   late final String id;
   late final String titulo;
   late final String descricao;
@@ -17,5 +19,6 @@ class Produto {
 
   void toggleFavorito() {
     isFavorite = !isFavorite;
+    notifyListeners();
   }
 }

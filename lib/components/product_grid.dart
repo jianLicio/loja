@@ -13,13 +13,17 @@ class ProdutoGrid extends StatelessWidget {
     final provider = Provider.of<ProdutoLista>(context);
     final List<Produto> loadedProducts = provider.itens;
     return GridView.builder(
-        itemCount: loadedProducts.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 3 / 2,
-          crossAxisSpacing: 10,
-        ),
-        itemBuilder: (ctx, index) =>
-            ProdutoItem(produto: loadedProducts[index]));
+      itemCount: loadedProducts.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        mainAxisSpacing: 10,
+        crossAxisCount: 1,
+        childAspectRatio: 1,
+        crossAxisSpacing: 10,
+      ),
+      itemBuilder: (ctx, index) => ChangeNotifierProvider.value(
+        value: loadedProducts[index],
+        child: ProdutoItem(),
+      ),
+    );
   }
 }
