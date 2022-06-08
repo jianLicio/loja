@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loja/models/produto.dart';
+import 'package:loja/components/adesivo.dart';
+import 'package:loja/models/cart.dart';
 import 'package:loja/models/produto_lista.dart';
 import 'package:provider/provider.dart';
 
@@ -49,6 +50,14 @@ class _ProdutosOverviewPageState extends State<ProdutosOverviewPage> {
               });
             },
           ),
+          Consumer<Cart>(
+            child: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.shopping_cart),
+            ),
+            builder: (context, cart, child) =>
+                Adesivo(valor: cart.itemsCount.toString(), child: child!),
+          )
         ],
       ),
       body: ProdutoGrid(showFavoriteOnly: _showFavoriteOnly),

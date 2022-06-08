@@ -13,31 +13,4 @@ class ProdutoLista with ChangeNotifier {
     _itens.add(produto);
     notifyListeners();
   }
-
-  // bool _showFavoriteOnly = false;
-
-  // List<Produto> get itens {
-  //   if (_showFavoriteOnly) {
-  //     return _itens.where((prod) => prod.isFavorite).toList();
-  //   }
-  //   return [..._itens];
-  // }
-
-  // List<Produto> get favoriteItems =>
-  //     _itens.where((prod) => prod.isFavorite).toList();
-
-  // void showFavoriteOnly() {
-  //   _showFavoriteOnly = true;
-  //   notifyListeners();
-  // }
-
-  // void showAll() {
-  //   _showFavoriteOnly = false;
-  //   notifyListeners();
-  // }
-
-  // void addProduto(Produto produto) {
-  //   _itens.add(produto);
-  //   notifyListeners();
-  // }
 }
