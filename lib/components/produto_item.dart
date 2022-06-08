@@ -5,6 +5,8 @@ import 'package:loja/utils/app_routes.dart';
 import 'package:provider/provider.dart';
 
 class ProdutoItem extends StatelessWidget {
+  const ProdutoItem({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final produto = Provider.of<Produto>(context, listen: false);
