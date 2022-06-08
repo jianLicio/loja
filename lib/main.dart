@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loja/models/carrinho.dart';
 import 'package:loja/models/produto_lista.dart';
-import 'package:loja/pages/pagina_carrinho.dart';
-import 'package:loja/pages/produto_detail_page.dart';
+import 'package:loja/pages/carrinho_pagina.dart';
+import 'package:loja/pages/produto_detalhe_pagina.dart';
 import 'package:loja/pages/produtos_overview.page.dart';
 import 'package:loja/utils/app_routes.dart';
 import 'package:provider/provider.dart';
@@ -40,8 +40,8 @@ class MyApp extends StatelessWidget {
         ),
         home: const ProdutosOverviewPage(),
         routes: {
-          AppRoutes.produtoDetail: ((context) => const ProdutoDetailPage()),
-          AppRoutes.carrinho: ((context) => const PaginaCarrinho()),
+          AppRoutes.produtoDetail: ((context) => const ProdutoDetalhePagina()),
+          AppRoutes.carrinho: ((context) => const CarrinhoPagina()),
         },
       ),
     );
