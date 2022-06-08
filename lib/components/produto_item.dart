@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loja/models/cart.dart';
+import 'package:loja/models/carrinho.dart';
 import 'package:loja/models/produto.dart';
 import 'package:loja/utils/app_routes.dart';
 import 'package:provider/provider.dart';
@@ -8,7 +8,7 @@ class ProdutoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final produto = Provider.of<Produto>(context, listen: false);
-    final cart = Provider.of<Cart>(context);
+    final cart = Provider.of<Carrinho>(context);
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(30),

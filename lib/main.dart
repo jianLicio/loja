@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:loja/models/cart.dart';
+import 'package:loja/models/carrinho.dart';
 import 'package:loja/models/produto_lista.dart';
+import 'package:loja/pages/pagina_carrinho.dart';
 import 'package:loja/pages/produto_detail_page.dart';
 import 'package:loja/pages/produtos_overview.page.dart';
 import 'package:loja/utils/app_routes.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           create: (_) => ProdutoLista(),
         ),
         ChangeNotifierProvider(
-          create: (_) => Cart(),
+          create: (_) => Carrinho(),
         )
       ],
       child: MaterialApp(
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
         ),
         home: const ProdutosOverviewPage(),
         routes: {
-          AppRoutes.produtoDetail: ((context) => const ProdutoDetailPage())
+          AppRoutes.produtoDetail: ((context) => const ProdutoDetailPage()),
+          AppRoutes.carrinho: ((context) => const PaginaCarrinho()),
         },
       ),
     );

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:loja/components/adesivo.dart';
-import 'package:loja/models/cart.dart';
+import 'package:loja/models/carrinho.dart';
 import 'package:loja/models/produto_lista.dart';
+import 'package:loja/pages/pagina_carrinho.dart';
+import 'package:loja/utils/app_routes.dart';
 import 'package:provider/provider.dart';
 
 import '../components/product_grid.dart';
@@ -50,9 +52,11 @@ class _ProdutosOverviewPageState extends State<ProdutosOverviewPage> {
               });
             },
           ),
-          Consumer<Cart>(
+          Consumer<Carrinho>(
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.carrinho);
+              },
               icon: const Icon(Icons.shopping_cart),
             ),
             builder: (context, cart, child) =>
