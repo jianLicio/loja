@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../models/produto.dart';
 
-class ProdutoDetailPage extends StatelessWidget {
-  const ProdutoDetailPage({Key? key}) : super(key: key);
+class ProdutoDetalhePagina extends StatelessWidget {
+  const ProdutoDetalhePagina({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
