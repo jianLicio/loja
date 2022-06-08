@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:loja/components/adesivo.dart';
 import 'package:loja/models/carrinho.dart';
 import 'package:loja/models/produto_lista.dart';
-import 'package:loja/pages/pagina_carrinho.dart';
 import 'package:loja/utils/app_routes.dart';
 import 'package:provider/provider.dart';
 

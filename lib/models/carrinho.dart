@@ -31,7 +31,7 @@ class Carrinho with ChangeNotifier {
         (existeItem) => ItemCarrinho(
           id: existeItem.id,
           produtoId: existeItem.produtoId,
-          name: existeItem.name,
+          nome: existeItem.nome,
           quantidade: existeItem.quantidade + 1,
           preco: existeItem.preco,
         ),
@@ -42,7 +42,7 @@ class Carrinho with ChangeNotifier {
         () => ItemCarrinho(
           id: Random().nextDouble().toString(),
           produtoId: produto.id,
-          name: produto.nome!,
+          nome: produto.nome!,
           quantidade: 1,
           preco: produto.preco,
         ),
