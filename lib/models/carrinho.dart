@@ -16,7 +16,7 @@ class Carrinho with ChangeNotifier {
     return _itens.length;
   }
 
-  double get totalAmount {
+  double get totalCompras {
     double total = 0.0;
     _itens.forEach((key, cartItem) {
       total += cartItem.preco * cartItem.quantidade;
