@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loja/components/carrinho_item.dart';
 import 'package:loja/models/carrinho.dart';
+import 'package:loja/models/pedido_lista.dart';
 import 'package:provider/provider.dart';
 
 class CarrinhoPagina extends StatelessWidget {
@@ -39,7 +40,11 @@ class CarrinhoPagina extends StatelessWidget {
                 ),
                 const Spacer(),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Provider.of<PedidoLista>(context, listen: false)
+                        .addPedido(carrinho);
+                    carrinho.clear();
+                  },
                   child: const Text('Comprar'),
                   style: TextButton.styleFrom(
                     textStyle: TextStyle(
