@@ -4,6 +4,7 @@ import 'package:loja/models/carrinho.dart';
 import 'package:loja/models/pedido_lista.dart';
 import 'package:loja/models/produto_lista.dart';
 import 'package:loja/pages/carrinho_pagina.dart';
+import 'package:loja/pages/pedidos_pagina.dart';
 import 'package:loja/pages/produto_detalhe_pagina.dart';
 import 'package:loja/pages/produtos_overview.page.dart';
 import 'package:loja/utils/app_routes.dart';
@@ -42,10 +43,12 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.acmeTextTheme(),
           primaryTextTheme: GoogleFonts.oleoScriptSwashCapsTextTheme(),
         ),
-        home: const ProdutosOverviewPage(),
+        // home: const ProdutosOverviewPage(),
         routes: {
+          AppRoutes.home: ((context) => const ProdutosOverviewPage()),
           AppRoutes.produtoDetail: ((context) => const ProdutoDetalhePagina()),
           AppRoutes.carrinho: ((context) => const CarrinhoPagina()),
+          AppRoutes.pedido: ((context) => const PedidoPagina()),
         },
       ),
     );
