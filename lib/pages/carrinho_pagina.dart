@@ -32,7 +32,7 @@ class CarrinhoPagina extends StatelessWidget {
                 Chip(
                   backgroundColor: Theme.of(context).primaryColor,
                   label: Text(
-                    'R\$ ${carrinho.totalCompras}',
+                    'R\$ ${carrinho.totalCompras.toStringAsFixed(2)}',
                     style: const TextStyle(
                       color: Colors.white,
                     ),
