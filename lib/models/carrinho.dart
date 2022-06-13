@@ -51,6 +51,28 @@ class Carrinho with ChangeNotifier {
     notifyListeners();
   }
 
+  void removeUmItem(String produtoId) {
+    if (!_itens.containsKey(produtoId)) {
+      return;
+    }
+
+    if (_itens[produtoId]?.quantidade == 1) {
+      removeItem(produtoId);
+    } else {
+      _itens.update(
+        produtoId,
+        (existeItem) => ItemCarrinho(
+          id: existeItem.id,
+          produtoId: existeItem.produtoId,
+          nome: existeItem.nome,
+          quantidade: existeItem.quantidade - 1,
+          preco: existeItem.preco,
+        ),
+      );
+      notifyListeners();
+    }
+  }
+
   void removeItem(String productId) {
     _itens.remove(productId);
     notifyListeners();
