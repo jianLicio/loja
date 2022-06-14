@@ -26,6 +26,25 @@ class CarrinhoItemWidget extends StatelessWidget {
         padding: const EdgeInsets.only(right: 10),
         margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 4),
       ),
+      confirmDismiss: (_) {
+        return showDialog<bool>(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: const Text('Tem certeza?'),
+            content: const Text('Quer remover o item do carrinho?'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(ctx).pop(true),
+                child: const Text('Sim'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.of(ctx).pop(false),
+                child: const Text('Não'),
+              ),
+            ],
+          ),
+        );
+      },
       onDismissed: (_) {
         Provider.of<Carrinho>(context, listen: false)
             .removeItem(carrinhoItem.produtoId);

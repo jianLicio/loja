@@ -6,6 +6,8 @@ import 'package:loja/models/produto_lista.dart';
 import 'package:loja/pages/carrinho_pagina.dart';
 import 'package:loja/pages/pedidos_pagina.dart';
 import 'package:loja/pages/produto_detalhe_pagina.dart';
+import 'package:loja/pages/produto_form_pagina.dart';
+import 'package:loja/pages/produtos_pagina.dart';
 import 'package:loja/pages/produtos_overview.page.dart';
 import 'package:loja/utils/app_routes.dart';
 import 'package:provider/provider.dart';
@@ -49,6 +51,8 @@ class MyApp extends StatelessWidget {
           AppRoutes.produtoDetail: ((context) => const ProdutoDetalhePagina()),
           AppRoutes.carrinho: ((context) => const CarrinhoPagina()),
           AppRoutes.pedido: ((context) => const PedidoPagina()),
+          AppRoutes.produtosPagina: ((context) => const ProdutosPagina()),
+          AppRoutes.produtosForm: ((context) => const ProdutoFormPagina()),
         },
       ),
     );

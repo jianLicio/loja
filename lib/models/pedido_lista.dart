@@ -5,7 +5,7 @@ import 'package:loja/models/carrinho.dart';
 import 'package:loja/models/pedido.dart';
 
 class PedidoLista with ChangeNotifier {
-  List<Pedido> _itens = [];
+  final List<Pedido> _itens = [];
 
   List<Pedido> get itens {
     return [..._itens];
