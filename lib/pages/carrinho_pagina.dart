@@ -39,19 +39,7 @@ class CarrinhoPagina extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                TextButton(
-                  onPressed: () {
-                    Provider.of<PedidoLista>(context, listen: false)
-                        .addPedido(carrinho);
-                    carrinho.clear();
-                  },
-                  child: const Text('Comprar'),
-                  style: TextButton.styleFrom(
-                    textStyle: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                    ),
-                  ),
-                )
+                BottaoCarrinho(carrinho: carrinho)
               ],
             ),
           ),
@@ -65,5 +53,50 @@ class CarrinhoPagina extends StatelessWidget {
         ),
       ]),
     );
+  }
+}
+
+class BottaoCarrinho extends StatefulWidget {
+  const BottaoCarrinho({
+    Key? key,
+    required this.carrinho,
+  }) : super(key: key);
+
+  final Carrinho carrinho;
+
+  @override
+  State<BottaoCarrinho> createState() => _BottaoCarrinhoState();
+}
+
+class _BottaoCarrinhoState extends State<BottaoCarrinho> {
+  bool _isLoading = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return _isLoading
+        ? const CircularProgressIndicator()
+        : TextButton(
+            onPressed: widget.carrinho.itemsCount == 0
+                ? null
+                : () async {
+                    setState(() {
+                      _isLoading = true;
+                    });
+                    await Provider.of<PedidoLista>(
+                      context,
+                      listen: false,
+                    ).addPedido(widget.carrinho);
+                    widget.carrinho.clear();
+                    setState(() {
+                      _isLoading = false;
+                    });
+                  },
+            child: const Text('Comprar'),
+            style: TextButton.styleFrom(
+              textStyle: TextStyle(
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
+          );
   }
 }

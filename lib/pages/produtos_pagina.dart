@@ -8,6 +8,13 @@ import 'package:provider/provider.dart';
 class ProdutosPagina extends StatelessWidget {
   const ProdutosPagina({Key? key}) : super(key: key);
 
+  Future<void> _refreshProdutos(BuildContext context) {
+    return Provider.of<ProdutoLista>(
+      context,
+      listen: false,
+    ).loadProdutos();
+  }
+
   @override
   Widget build(BuildContext context) {
     final ProdutoLista produtos = Provider.of(context);
@@ -25,15 +32,18 @@ class ProdutosPagina extends StatelessWidget {
         ],
       ),
       drawer: const AppDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.all(8),
-        child: ListView.builder(
-          itemCount: produtos.itensContador,
-          itemBuilder: (ctx, i) => Column(
-            children: [
-              ProdutoItem(produtos.itens[i]),
-              const Divider(),
-            ],
+      body: RefreshIndicator(
+        onRefresh: () => _refreshProdutos(context),
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: ListView.builder(
+            itemCount: produtos.itensContador,
+            itemBuilder: (ctx, i) => Column(
+              children: [
+                ProdutoItem(produtos.itens[i]),
+                const Divider(),
+              ],
+            ),
           ),
         ),
       ),

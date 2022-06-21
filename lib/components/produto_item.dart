@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loja/exceptions/http_exceptions.dart';
 import 'package:loja/models/produto.dart';
 import 'package:loja/models/produto_lista.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ class ProdutoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final msg = ScaffoldMessenger.of(context);
     return ListTile(
       leading: CircleAvatar(
         backgroundImage: NetworkImage(produto.imagemUrl),
@@ -38,27 +40,44 @@ class ProdutoItem extends StatelessWidget {
               color: Theme.of(context).errorColor,
               onPressed: () {
                 showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                          title: const Text('Excluir Produto'),
-                          content: const Text('Tem certeza?'),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Provider.of<ProdutoLista>(
-                                  context,
-                                  listen: false,
-                                ).removeProduct(produto);
-                                Navigator.of(context).pop();
-                              },
-                              child: const Text('Sim'),
-                            ),
-                            TextButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: const Text('Não'),
-                            ),
-                          ],
-                        ));
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: const Text('Excluir Produto'),
+                    content: const Text('Tem certeza?'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Provider.of<ProdutoLista>(
+                            context,
+                            listen: false,
+                          ).removeProduct(produto);
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('Sim'),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: const Text('Não'),
+                      ),
+                    ],
+                  ),
+                ).then((value) async {
+                  try {
+                    if (value ?? false) {
+                      await Provider.of<ProdutoLista>(
+                        context,
+                        listen: false,
+                      ).removeProduct(produto);
+                    }
+                  } on HttpException catch (erro) {
+                    print('erro $erro');
+                    msg.showSnackBar(
+                      SnackBar(
+                        content: Text(erro.toString()),
+                      ),
+                    );
+                  }
+                });
               },
             ),
           ],
