@@ -84,7 +84,7 @@ class PedidoLista with ChangeNotifier {
         ),
       );
     });
-    print(dados);
+    debugPrint('$dados');
     notifyListeners();
   }
 }

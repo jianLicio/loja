@@ -73,7 +73,7 @@ class ProdutoLista with ChangeNotifier {
     );
 
     final id = jsonDecode(response.body)['name'];
-    print(id);
+    debugPrint(id);
     _itens.add(
       Produto(
         id: id,

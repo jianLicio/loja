@@ -2,16 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:loja/components/app_drawer.dart';
 import 'package:loja/components/pedido.dart';
 import 'package:loja/models/pedido_lista.dart';
-import 'package:loja/models/produto_lista.dart';
 import 'package:provider/provider.dart';
 
 class PedidoPagina extends StatelessWidget {
-  Future<void> _refreshProdutos(BuildContext context) {
-    return Provider.of<ProdutoLista>(
-      context,
-      listen: false,
-    ).loadProdutos();
-  }
+  const PedidoPagina({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

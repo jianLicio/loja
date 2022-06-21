@@ -70,7 +70,7 @@ class ProdutoItem extends StatelessWidget {
                       ).removeProduct(produto);
                     }
                   } on HttpException catch (erro) {
-                    print('erro $erro');
+                    debugPrint('erro $erro');
                     msg.showSnackBar(
                       SnackBar(
                         content: Text(erro.toString()),
