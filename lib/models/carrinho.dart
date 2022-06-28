@@ -42,7 +42,7 @@ class Carrinho with ChangeNotifier {
         () => ItemCarrinho(
           id: Random().nextDouble().toString(),
           produtoId: produto.id,
-          nome: produto.nome!,
+          nome: produto.nome,
           quantidade: 1,
           preco: produto.preco,
         ),

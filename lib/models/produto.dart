@@ -7,7 +7,7 @@ import '../utils/constantes.dart';
 
 class Produto with ChangeNotifier {
   late final String id;
-  final String? nome;
+  late final String nome;
   late final String descricao;
   late final double preco;
   late final String imagemUrl;

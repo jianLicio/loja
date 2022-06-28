@@ -54,7 +54,7 @@ class _ProdutoFormPaginaState extends State<ProdutoFormPagina> {
       if (arg != null) {
         final produto = arg as Produto;
         _formData['id'] = produto.id;
-        _formData['nome'] = produto.nome!;
+        _formData['nome'] = produto.nome;
         _formData['preco'] = produto.preco;
         _formData['descricao'] = produto.descricao;
         _formData['imagemUrl'] = produto.imagemUrl;

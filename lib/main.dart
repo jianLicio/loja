@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:loja/models/carrinho.dart';
 import 'package:loja/models/pedido_lista.dart';
 import 'package:loja/models/produto_lista.dart';
+import 'package:loja/pages/autenticacao_pagina.dart';
 import 'package:loja/pages/carrinho_pagina.dart';
 import 'package:loja/pages/pedidos_pagina.dart';
 import 'package:loja/pages/produto_detalhe_pagina.dart';
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
           AppRoutes.pedido: ((context) => const PedidoPagina()),
           AppRoutes.produtosPagina: ((context) => const ProdutosPagina()),
           AppRoutes.produtosForm: ((context) => const ProdutoFormPagina()),
+          AppRoutes.autenticacao: ((context) => const AutenticacaoPagina()),
         },
       ),
     );

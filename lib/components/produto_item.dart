@@ -20,7 +20,7 @@ class ProdutoItem extends StatelessWidget {
       leading: CircleAvatar(
         backgroundImage: NetworkImage(produto.imagemUrl),
       ),
-      title: Text(produto.nome!),
+      title: Text(produto.nome),
       trailing: SizedBox(
         width: 100,
         child: Row(
