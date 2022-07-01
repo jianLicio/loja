@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:loja/models/autenticacao.dart';
 import 'package:loja/models/carrinho.dart';
 import 'package:loja/models/pedido_lista.dart';
 import 'package:loja/models/produto_lista.dart';
@@ -33,6 +34,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => PedidoLista(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => Autenticacao(),
         ),
       ],
       child: MaterialApp(

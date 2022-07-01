@@ -30,11 +30,12 @@ class AutenticacaoPagina extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
+                  margin: const EdgeInsets.only(bottom: 20),
                   padding: const EdgeInsets.symmetric(
                     vertical: 10,
-                    horizontal: 50,
+                    horizontal: 75,
                   ),
-                  transform: Matrix4.rotationZ(-8 * pi / 180)..translate(-10.0),
+                  transform: Matrix4.rotationZ(-8 * pi / 180)..translate(-5.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.deepOrange,
